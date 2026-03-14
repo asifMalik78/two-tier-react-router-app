@@ -1,0 +1,33 @@
+services:
+  todo-db:
+    image: mysql:8.0
+    container_name: todo-db
+    networks:
+      - todonetwork
+    volumes:
+      - todo_persist:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: todo_app
+  todo-app:
+     build:
+       context: .
+       dockerfile: Dockerfile.prod
+     container_name: todo-app
+     networks:
+       - todonetwork
+     environment:
+       DB_HOST: todo-db
+       DB_PORT: 3306
+       DB_USER: root
+       DB_PASSWORD: 12345678
+       DB_NAME: todo_app
+       HOST: 0.0.0.0
+     ports:
+       - 3000:3000
+
+networks:
+   todonetwork:
+
+volumes:
+   todo_persist:
