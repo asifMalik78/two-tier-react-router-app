@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Building Docker Image') {
             steps {
-                sh 'docker build -t todo-app-image -f ./Duckerfile.prod .'
+                sh 'docker build -t todo-app-image -f ./Dockerfile.prod .'
             }
         }
         stage('Login to Docker Hub') {
