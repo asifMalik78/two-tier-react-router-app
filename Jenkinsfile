@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Building Docker Image') {
             steps {
-                sh 'docker build -t todo-app-image -f ./Dockerfile.prod .'
+                sh 'docker build -t todo-app-image -f ./Duckerfile.prod .'
             }
         }
         stage('Login to Docker Hub') {
@@ -26,7 +26,7 @@ pipeline {
         }
         stage ('Pushing Image to Dodkerhub') {
             steps {
-                sh 'docker tag todo-app-image asifmalik78/todo-app-image:latested'
+                sh 'docker tag todo-app-image asifmalik78/todo-app-image:latest'
                 sh 'docker push asifmalik78/todo-app-image:latest'
             }
         }
