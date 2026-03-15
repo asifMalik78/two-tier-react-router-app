@@ -37,14 +37,13 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext(
+                subject: "Build Status: ${currentBuild.currentResult}",
+                body: "Build ${currentBuild.currentResult}. ${env.BUILD_URL}",
+                to: "asifmalik.aktu@gmail.com"
+            )
+        }
 }
-
-post {
-    always {
-        emailext(
-            subject: "Build Status: ${currentBuild.currentResult}",
-            body: "Build ${currentBuild.currentResult}. ${env.BUILD_URL}",
-            to: "asifmalik.aktu@gmail.com"
-        )
-    }
 }
