@@ -96,7 +96,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 px-4">
       <div className="max-w-lg mx-auto">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-8">
-          Todos App 
+          Powerful Todo App
         </h1>
 
         <form onSubmit={(e) => { e.preventDefault(); addTodo(); }} className="flex flex-col gap-2 mb-8">
