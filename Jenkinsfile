@@ -24,7 +24,7 @@ pipeline {
                 }
             }
         }
-        stage ('Pusing Image to Dodkerhub') {
+        stage ('Pushing Image to Dodkerhub') {
             steps {
                 sh 'docker tag todo-app-image asifmalik78/todo-app-image:latest'
                 sh 'docker push asifmalik78/todo-app-image:latest'
