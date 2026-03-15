@@ -10,9 +10,10 @@ services:
       MYSQL_ROOT_PASSWORD: 12345678
       MYSQL_DATABASE: todo_app
   todo-app:
-     build:
-       context: .
-       dockerfile: Dockerfile.prod
+#     build:
+#      context: .
+#       dockerfile: Dockerfile.prod
+     image: asifmalik78/todo-app-image:latest
      container_name: todo-app
      depends_on:
        - todo-db
